@@ -1,6 +1,6 @@
 import { useLanguage } from '@/lib/language-context';
-import { Sparkles, Heart } from 'lucide-react';
-import { SiWhatsapp, SiInstagram, SiFacebook } from 'react-icons/si';
+import { Heart, MapPin } from 'lucide-react';
+import { SiWhatsapp, SiInstagram, SiFacebook, SiTiktok } from 'react-icons/si';
 
 export function Footer() {
   const { t, language, isRTL } = useLanguage();
@@ -11,15 +11,25 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div className="text-center md:text-start rtl:md:text-end">
             <div className="flex items-center justify-center md:justify-start rtl:md:justify-end gap-2 mb-4">
-              <Sparkles className="w-6 h-6 text-lilia" />
+              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" strokeWidth="2">
+                <defs>
+                  <linearGradient id="logoGradientFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#ec4899" />
+                    <stop offset="50%" stopColor="#ec4899" />
+                    <stop offset="50%" stopColor="#3b82f6" />
+                    <stop offset="100%" stopColor="#3b82f6" />
+                  </linearGradient>
+                </defs>
+                <path stroke="url(#logoGradientFooter)" d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+              </svg>
               <span className="font-bold text-xl" data-testid="text-footer-brand">
                 {language === 'ar' ? 'سبيستون تويز' : 'Spacetoon Toys'}
               </span>
             </div>
             <p className="text-gray-400 text-sm" data-testid="text-footer-tagline">
               {isRTL 
-                ? 'أفضل ألعاب للأطفال في سوريا' 
-                : 'The best toys for kids in Syria'}
+                ? 'أفضل ألعاب للأطفال في الكويت' 
+                : 'The best toys for kids in Kuwait'}
             </p>
           </div>
 
@@ -65,6 +75,20 @@ export function Footer() {
                 data-testid="link-facebook"
               >
                 <SiFacebook className="w-5 h-5" />
+              </a>
+              <a 
+                href="#" 
+                className="w-10 h-10 rounded-full bg-black flex items-center justify-center"
+                data-testid="link-tiktok"
+              >
+                <SiTiktok className="w-5 h-5" />
+              </a>
+              <a 
+                href="#" 
+                className="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center"
+                data-testid="link-location"
+              >
+                <MapPin className="w-5 h-5" />
               </a>
             </div>
           </div>
