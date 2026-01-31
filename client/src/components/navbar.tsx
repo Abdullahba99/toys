@@ -24,7 +24,8 @@ export function Navbar() {
               <path stroke="#3b82f6" d="M19 17v4"/><path stroke="#3b82f6" d="M17 19h4"/>
             </svg>
             <span className="font-bold text-xl tracking-tight" data-testid="text-nav-brand">
-              {language === 'ar' ? 'سبيستون تويز' : 'Spacetoon Toys'}
+              <span className="text-lilia">{language === 'ar' ? 'سبيستون' : 'Space'}</span>
+              <span className="text-adam">{language === 'ar' ? ' تويز' : 'toon Toys'}</span>
             </span>
           </div>
 

@@ -37,7 +37,12 @@
   .header__logo-text {
     font-weight: 700;
     font-size: 1.25rem;
-    color: var(--color-text);
+  }
+  .header__logo-text--pink {
+    color: var(--color-lilia);
+  }
+  .header__logo-text--blue {
+    color: var(--color-adam);
   }
   .header__nav {
     display: none;
@@ -103,7 +108,7 @@
         <path stroke="var(--color-lilia)" d="M5 3v4"/><path stroke="var(--color-lilia)" d="M3 5h4"/>
         <path stroke="var(--color-adam)" d="M19 17v4"/><path stroke="var(--color-adam)" d="M17 19h4"/>
       </svg>
-      <span class="header__logo-text">{{ 'general.store_name' | t }}</span>
+      <span class="header__logo-text"><span class="header__logo-text--pink">{% if request.locale.iso_code == 'ar' %}سبيستون{% else %}Space{% endif %}</span><span class="header__logo-text--blue">{% if request.locale.iso_code == 'ar' %} تويز{% else %}toon Toys{% endif %}</span></span>
     </a>
 
     <nav class="header__nav">
