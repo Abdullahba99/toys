@@ -72,7 +72,7 @@
         "type": "text",
         "id": "social_whatsapp",
         "label": "WhatsApp Number",
-        "info": "Include country code (e.g., +963912345678)"
+        "info": "Include country code (e.g., +965912345678)"
       },
       {
         "type": "text",
@@ -83,6 +83,17 @@
         "type": "text",
         "id": "social_facebook",
         "label": "Facebook URL"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok",
+        "label": "TikTok URL"
+      },
+      {
+        "type": "text",
+        "id": "store_location",
+        "label": "Store Location",
+        "info": "Google Maps URL for your store location"
       }
     ]
   },
