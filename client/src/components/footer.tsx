@@ -1,6 +1,7 @@
 import { useLanguage } from '@/lib/language-context';
 import { Heart, MapPin } from 'lucide-react';
 import { SiWhatsapp, SiInstagram, SiFacebook, SiTiktok } from 'react-icons/si';
+import { Link } from 'wouter';
 
 export function Footer() {
   const { t, language, isRTL } = useLanguage();
@@ -8,7 +9,7 @@ export function Footer() {
   return (
     <footer className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-12" data-testid="section-footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="text-center md:text-start rtl:md:text-end">
             <div className="flex items-center justify-center md:justify-start rtl:md:justify-end gap-2 mb-4">
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" strokeWidth="2">
@@ -39,15 +40,29 @@ export function Footer() {
               {isRTL ? 'روابط سريعة' : 'Quick Links'}
             </h4>
             <div className="flex flex-col gap-2">
-              <a href="#home" className="text-gray-400" data-testid="link-footer-home">
+              <a href="#home" className="text-gray-400 hover:text-white transition-colors" data-testid="link-footer-home">
                 {t.navHome}
               </a>
-              <a href="#inventory" className="text-gray-400" data-testid="link-footer-shop">
+              <a href="#inventory" className="text-gray-400 hover:text-white transition-colors" data-testid="link-footer-shop">
                 {t.navShop}
               </a>
-              <a href="#about" className="text-gray-400" data-testid="link-footer-about">
+              <a href="#about" className="text-gray-400 hover:text-white transition-colors" data-testid="link-footer-about">
                 {t.navAbout}
               </a>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <h4 className="font-semibold mb-4" data-testid="text-footer-policies-title">
+              {t.policies}
+            </h4>
+            <div className="flex flex-col gap-2">
+              <Link href="/return-policy" className="text-gray-400 hover:text-white transition-colors" data-testid="link-return-policy">
+                {t.returnPolicy}
+              </Link>
+              <Link href="/exchange-policy" className="text-gray-400 hover:text-white transition-colors" data-testid="link-exchange-policy">
+                {t.exchangePolicy}
+              </Link>
             </div>
           </div>
 

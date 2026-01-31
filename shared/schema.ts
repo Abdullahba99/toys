@@ -53,6 +53,9 @@ export interface Translations {
   footerText: string;
   addToCart: string;
   currency: string;
+  policies: string;
+  returnPolicy: string;
+  exchangePolicy: string;
 }
 
 export const translations: Record<'en' | 'ar', Translations> = {
@@ -75,6 +78,9 @@ export const translations: Record<'en' | 'ar', Translations> = {
     footerText: "2025 Spacetoon Toys. All rights reserved.",
     addToCart: "Add to Cart",
     currency: "KWD",
+    policies: "Policies",
+    returnPolicy: "Return Policy",
+    exchangePolicy: "Exchange Policy",
   },
   ar: {
     heroHeadline: "مين ذوقه أحلى؟",
@@ -95,5 +101,8 @@ export const translations: Record<'en' | 'ar', Translations> = {
     footerText: "2025 سبيستون تويز. جميع الحقوق محفوظة.",
     addToCart: "أضف للسلة",
     currency: "د.ك",
+    policies: "السياسات",
+    returnPolicy: "سياسة الإرجاع",
+    exchangePolicy: "سياسة الاستبدال",
   }
 };
