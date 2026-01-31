@@ -20,10 +20,10 @@
     "products": {
       "type": "featured-products-tabs",
       "settings": {
-        "lilia_collection": "team-lilia",
-        "adam_collection": "team-adam",
+        "lilia_collection": "party-time",
+        "adam_collection": "party-time",
         "party_collection": "party-time",
-        "khalou_collection": "kh-picks"
+        "khalou_collection": "party-time"
       }
     },
     "about": {
