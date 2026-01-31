@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Button } from '@/components/ui/button';
 import { ProductCard } from './product-card';
 import { useLanguage } from '@/lib/language-context';
 import { useQuery } from '@tanstack/react-query';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Ribbon, Car, PartyPopper, GraduationCap } from 'lucide-react';
+import { Ribbon, Car, PartyPopper, GraduationCap, ChevronDown } from 'lucide-react';
 import type { Product } from '@shared/schema';
 
 interface ProductTabsProps {
@@ -11,8 +13,17 @@ interface ProductTabsProps {
   onTabChange: (tab: string) => void;
 }
 
+const INITIAL_PRODUCTS_COUNT = 4;
+const PRODUCTS_INCREMENT = 4;
+
 export function ProductTabs({ activeTab, onTabChange }: ProductTabsProps) {
   const { t, isRTL } = useLanguage();
+  const [visibleCounts, setVisibleCounts] = useState<Record<string, number>>({
+    lilia: INITIAL_PRODUCTS_COUNT,
+    adam: INITIAL_PRODUCTS_COUNT,
+    party: INITIAL_PRODUCTS_COUNT,
+    khalou: INITIAL_PRODUCTS_COUNT,
+  });
 
   const { data: products, isLoading } = useQuery<Product[]>({
     queryKey: ['/api/products'],
@@ -21,6 +32,13 @@ export function ProductTabs({ activeTab, onTabChange }: ProductTabsProps) {
   const filterProducts = (category: string) => {
     if (!products) return [];
     return products.filter(p => p.category === category);
+  };
+
+  const handleViewMore = (category: string) => {
+    setVisibleCounts(prev => ({
+      ...prev,
+      [category]: prev[category] + PRODUCTS_INCREMENT,
+    }));
   };
 
   const getAccentColor = (category: string): 'lilia' | 'adam' | 'default' => {
@@ -47,6 +65,9 @@ export function ProductTabs({ activeTab, onTabChange }: ProductTabsProps) {
     }
 
     const categoryProducts = filterProducts(category);
+    const visibleCount = visibleCounts[category] || INITIAL_PRODUCTS_COUNT;
+    const visibleProducts = categoryProducts.slice(0, visibleCount);
+    const hasMore = categoryProducts.length > visibleCount;
     
     if (categoryProducts.length === 0) {
       return (
@@ -57,14 +78,30 @@ export function ProductTabs({ activeTab, onTabChange }: ProductTabsProps) {
     }
 
     return (
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-        {categoryProducts.map(product => (
-          <ProductCard 
-            key={product.id} 
-            product={product} 
-            accentColor={getAccentColor(category)}
-          />
-        ))}
+      <div className="space-y-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          {visibleProducts.map(product => (
+            <ProductCard 
+              key={product.id} 
+              product={product} 
+              accentColor={getAccentColor(category)}
+            />
+          ))}
+        </div>
+        {hasMore && (
+          <div className="flex justify-center">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => handleViewMore(category)}
+              className="rounded-xl gap-2"
+              data-testid={`button-view-more-${category}`}
+            >
+              <span>{isRTL ? 'عرض المزيد' : 'View More'}</span>
+              <ChevronDown className="w-4 h-4" />
+            </Button>
+          </div>
+        )}
       </div>
     );
   };
