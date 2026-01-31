@@ -41,11 +41,15 @@ export class MemStorage implements IStorage {
       { name: "Birthday Crown", nameAr: "تاج عيد الميلاد", price: 12000, iconName: "crown", category: "party", inStock: true },
       { name: "Confetti Cannon", nameAr: "مدفع الكونفيتي", price: 15000, iconName: "sparkles", category: "party", inStock: true },
       { name: "Party Horn Set", nameAr: "طقم أبواق الحفلة", price: 6000, iconName: "megaphone", category: "party", inStock: true },
+      { name: "Pinata Star", nameAr: "بيناتا النجمة", price: 18000, iconName: "star", category: "party", inStock: true },
+      { name: "Party Hats Pack", nameAr: "حزمة قبعات الحفلة", price: 5000, iconName: "party-popper", category: "party", inStock: true },
       
       { name: "Classic Chess Set", nameAr: "طقم شطرنج كلاسيكي", price: 32000, iconName: "trophy", category: "khalou", inStock: true },
       { name: "Science Kit", nameAr: "طقم العلوم", price: 58000, iconName: "flask-conical", category: "khalou", inStock: true },
       { name: "Art Supply Box", nameAr: "صندوق أدوات الرسم", price: 45000, iconName: "palette", category: "khalou", inStock: true },
       { name: "Building Blocks", nameAr: "مكعبات البناء", price: 35000, iconName: "blocks", category: "khalou", inStock: true },
+      { name: "World Map Puzzle", nameAr: "بازل خريطة العالم", price: 25000, iconName: "globe", category: "khalou", inStock: true },
+      { name: "Math Learning Set", nameAr: "طقم تعليم الرياضيات", price: 28000, iconName: "calculator", category: "khalou", inStock: true },
     ];
 
     sampleProducts.forEach(product => {
