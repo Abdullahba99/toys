@@ -1,0 +1,37 @@
+Act as a Senior Frontend Developer. I need the complete, functional code for the "Spacetoon Toys" landing page.
+
+DESIGN FIX - IMPORTANT:
+The previous design felt crowded. Please implement this specific "Flow":
+1. HERO SECTION (Top): Split screen (Lilia vs Adam).
+2. STATS & TRUST BAR (Middle): A section showing the "Live Score" AND Trust Badges (e.g., "Fast Delivery", "24/7 WhatsApp"). This acts as a visual separator.
+3. INVENTORY SECTION (Bottom): The Tabbed Product Grid.
+
+INTERACTION LOGIC (Smart Anchors):
+- When the user clicks the "Shop Sparkles" button in the Hero (Lilia's side), the site must SMOOTH SCROLL down to the Inventory Section AND automatically switch the active tab to "Team Lilia".
+- Same logic for Adam's button -> Scrolls to grid -> Switches to "Team Adam".
+
+CONTENT & TRANSLATIONS:
+
+--- ENGLISH ---
+- Hero: "Who has better taste?"
+- Lilia's Button: "View Her Picks ⇩"
+- Adam's Button: "View His Picks ⇩"
+- Stats Bar: "Live Battle Score: Lilia (42) - Adam (38)" | "🚀 2-Hour Delivery" | "✅ Khalou Approved"
+- Tabs: "Team Lilia 🎀", "Team Adam 🏎️", "Party Time 🎈", "Khalou's Picks 🎩"
+- About: "Meet Khalou Mahmoud. I just pay the rent. My niece and nephew run the show."
+
+--- SYRIAN ARABIC (RTL) ---
+- Hero: "مين ذوقه أحلى؟"
+- Lilia's Button: "شوف اختياراتها ⇩"
+- Adam's Button: "شوف اختياراته ⇩"
+- Stats Bar: "النتيجة: ليليا (42) - آدم (38)" | "🚀 توصيل بساعتين" | "✅ مضمونة من خالو"
+- Tabs: "فريق ليليا 🎀", "فريق آدم 🏎️", "وقت الحفلة 🎈", "توصيات خالو 🎩"
+- About: "أهلين، أنا خالو محمود. بصراحة مو أنا اللي ممشي المحل، ولاد أختي هنن اللي بيتحكموا بكل شي."
+
+TECHNICAL SPECS:
+1. Layout: Navbar -> Hero -> **Stats/Trust Divider** -> Product Tabs -> About -> Footer.
+2. Styling: Tailwind CSS. Use a clean white background. Use distinct shadows on the "Stats Bar" to make it pop over the background.
+3. JavaScript: Write the logic to handle the "Scroll-and-Switch" behavior for the hero buttons.
+
+OUTPUT:
+Provide the FULL, SINGLE-FILE CODE (HTML + CSS + JS) ready to run.
