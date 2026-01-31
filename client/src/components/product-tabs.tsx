@@ -27,10 +27,11 @@ export function ProductTabs({ activeTab, onTabChange }: ProductTabsProps) {
     return products.filter(p => p.category === category);
   };
 
-  const getAccentColor = (category: string): 'lilia' | 'adam' | 'default' => {
+  const getAccentColor = (category: string): 'lilia' | 'adam' | 'party' | 'khalou' => {
     if (category === 'lilia') return 'lilia';
     if (category === 'adam') return 'adam';
-    return 'default';
+    if (category === 'party') return 'party';
+    return 'khalou';
   };
 
   const renderProducts = (category: string) => {
@@ -119,7 +120,7 @@ export function ProductTabs({ activeTab, onTabChange }: ProductTabsProps) {
             </TabsTrigger>
             <TabsTrigger 
               value="party" 
-              className="rounded-xl py-3 data-[state=active]:bg-gradient-to-r data-[state=active]:from-yellow-400 data-[state=active]:to-orange-400 data-[state=active]:text-white font-semibold transition-all flex items-center justify-center gap-2"
+              className="rounded-xl py-3 data-[state=active]:bg-party data-[state=active]:text-white font-semibold transition-all flex items-center justify-center gap-2"
               data-testid="tab-party"
             >
               <PartyPopper className="w-4 h-4" />
@@ -127,7 +128,7 @@ export function ProductTabs({ activeTab, onTabChange }: ProductTabsProps) {
             </TabsTrigger>
             <TabsTrigger 
               value="khalou" 
-              className="rounded-xl py-3 data-[state=active]:bg-gray-800 data-[state=active]:text-white font-semibold transition-all flex items-center justify-center gap-2"
+              className="rounded-xl py-3 data-[state=active]:bg-khalou data-[state=active]:text-white font-semibold transition-all flex items-center justify-center gap-2"
               data-testid="tab-khalou"
             >
               <GraduationCap className="w-4 h-4" />

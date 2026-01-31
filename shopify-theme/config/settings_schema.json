@@ -36,6 +36,30 @@
       },
       {
         "type": "color",
+        "id": "color_party",
+        "label": "Party Time Color",
+        "default": "#8b5cf6"
+      },
+      {
+        "type": "color",
+        "id": "color_party_light",
+        "label": "Party Time Light",
+        "default": "#ede9fe"
+      },
+      {
+        "type": "color",
+        "id": "color_khalou",
+        "label": "Khalou's Picks Color",
+        "default": "#10b981"
+      },
+      {
+        "type": "color",
+        "id": "color_khalou_light",
+        "label": "Khalou's Picks Light",
+        "default": "#d1fae5"
+      },
+      {
+        "type": "color",
         "id": "color_background",
         "label": "Background Color",
         "default": "#ffffff"

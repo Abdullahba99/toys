@@ -8,10 +8,10 @@ import type { Product } from '@shared/schema';
 
 interface ProductCardProps {
   product: Product;
-  accentColor?: 'lilia' | 'adam' | 'default';
+  accentColor?: 'lilia' | 'adam' | 'party' | 'khalou';
 }
 
-export function ProductCard({ product, accentColor = 'default' }: ProductCardProps) {
+export function ProductCard({ product, accentColor = 'lilia' }: ProductCardProps) {
   const { t, language, isRTL } = useLanguage();
   
   const name = language === 'ar' ? product.nameAr : product.name;
@@ -20,7 +20,9 @@ export function ProductCard({ product, accentColor = 'default' }: ProductCardPro
     switch (accentColor) {
       case 'lilia': return 'border-lilia/20';
       case 'adam': return 'border-adam/20';
-      default: return 'border-primary/20';
+      case 'party': return 'border-party/20';
+      case 'khalou': return 'border-khalou/20';
+      default: return 'border-lilia/20';
     }
   };
 
@@ -28,7 +30,9 @@ export function ProductCard({ product, accentColor = 'default' }: ProductCardPro
     switch (accentColor) {
       case 'lilia': return 'text-lilia';
       case 'adam': return 'text-adam';
-      default: return 'text-primary';
+      case 'party': return 'text-party';
+      case 'khalou': return 'text-khalou';
+      default: return 'text-lilia';
     }
   };
 

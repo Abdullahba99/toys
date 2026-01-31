@@ -16,8 +16,8 @@ export function AboutSection() {
 
           <div className="flex flex-col md:flex-row items-center gap-8 pt-4">
             <div className="relative flex-shrink-0">
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center shadow-inner">
-                <User className="w-16 h-16 md:w-20 md:h-20 text-gray-400" />
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-khalou-light to-khalou/20 flex items-center justify-center shadow-inner border-2 border-khalou/30">
+                <User className="w-16 h-16 md:w-20 md:h-20 text-khalou" />
               </div>
               <Heart className="absolute -top-2 end-0 w-8 h-8 text-red-400 animate-pulse-soft" />
               <Star className="absolute -bottom-1 start-0 w-6 h-6 text-yellow-400" />

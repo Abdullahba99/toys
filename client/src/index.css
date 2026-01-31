@@ -44,12 +44,18 @@
   --chart-4: 40 85% 55%;
   --chart-5: 160 70% 45%;
   /* Spacetoon custom colors */
-  --lilia: 330 75% 55%;
+  --lilia: 330 81% 60%;
   --lilia-light: 330 80% 92%;
   --lilia-dark: 330 75% 40%;
-  --adam: 210 85% 55%;
-  --adam-light: 210 85% 92%;
-  --adam-dark: 210 85% 40%;
+  --adam: 217 91% 60%;
+  --adam-light: 217 85% 92%;
+  --adam-dark: 217 85% 40%;
+  --party: 258 90% 66%;
+  --party-light: 258 85% 92%;
+  --party-dark: 258 75% 45%;
+  --khalou: 160 84% 39%;
+  --khalou-light: 160 70% 90%;
+  --khalou-dark: 160 84% 30%;
   --font-sans: 'Poppins', sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;

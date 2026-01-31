@@ -30,15 +30,15 @@ const collectionInfo: Record<string, {
   },
   party: {
     icon: PartyPopper,
-    colorClass: 'text-orange-500',
-    bgClass: 'bg-orange-50',
+    colorClass: 'text-party',
+    bgClass: 'bg-party/10',
     nameEn: 'Party Time',
     nameAr: 'وقت الحفلة',
   },
   khalou: {
     icon: GraduationCap,
-    colorClass: 'text-gray-800',
-    bgClass: 'bg-gray-100',
+    colorClass: 'text-khalou',
+    bgClass: 'bg-khalou/10',
     nameEn: "Khalou's Picks",
     nameAr: 'توصيات خالو',
   },
@@ -57,10 +57,11 @@ export default function CollectionPage() {
   const info = collectionInfo[category] || collectionInfo.lilia;
   const Icon = info.icon;
 
-  const getAccentColor = (cat: string): 'lilia' | 'adam' | 'default' => {
+  const getAccentColor = (cat: string): 'lilia' | 'adam' | 'party' | 'khalou' => {
     if (cat === 'lilia') return 'lilia';
     if (cat === 'adam') return 'adam';
-    return 'default';
+    if (cat === 'party') return 'party';
+    return 'khalou';
   };
 
   return (

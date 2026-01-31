@@ -93,6 +93,16 @@ export default {
           light: "hsl(var(--adam-light) / <alpha-value>)",
           dark: "hsl(var(--adam-dark) / <alpha-value>)",
         },
+        party: {
+          DEFAULT: "hsl(var(--party) / <alpha-value>)",
+          light: "hsl(var(--party-light) / <alpha-value>)",
+          dark: "hsl(var(--party-dark) / <alpha-value>)",
+        },
+        khalou: {
+          DEFAULT: "hsl(var(--khalou) / <alpha-value>)",
+          light: "hsl(var(--khalou-light) / <alpha-value>)",
+          dark: "hsl(var(--khalou-dark) / <alpha-value>)",
+        },
       },
       fontFamily: {
         sans: ["var(--font-sans)"],
