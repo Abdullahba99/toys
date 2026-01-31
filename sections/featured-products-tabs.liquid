@@ -299,13 +299,21 @@
     <div role="tabpanel" id="panel-lilia" aria-labelledby="tab-lilia" aria-hidden="false" class="products-tabs__panel">
       {%- if lilia_collection != blank and lilia_collection.products.size > 0 -%}
         <div class="products-tabs__grid">
-          {%- for product in lilia_collection.products limit: 8 -%}
+          {%- for product in lilia_collection.products limit: 4 -%}
             {% render 'product-card', product: product, accent: 'lilia' %}
           {%- endfor -%}
         </div>
+        {%- if lilia_collection.products.size > 4 -%}
+          <div class="products-tabs__view-more">
+            <a href="{{ lilia_collection.url }}" class="products-tabs__view-more-btn">
+              <span>{{ 'products.view_more' | t }}</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        {%- endif -%}
       {%- else -%}
         <div class="products-tabs__grid">
-          {%- for product in collections.all.products limit: 6 -%}
+          {%- for product in collections.all.products limit: 4 -%}
             {% render 'product-card', product: product, accent: 'lilia' %}
           {%- endfor -%}
         </div>
@@ -316,13 +324,21 @@
     <div role="tabpanel" id="panel-adam" aria-labelledby="tab-adam" aria-hidden="true" class="products-tabs__panel">
       {%- if adam_collection != blank and adam_collection.products.size > 0 -%}
         <div class="products-tabs__grid">
-          {%- for product in adam_collection.products limit: 8 -%}
+          {%- for product in adam_collection.products limit: 4 -%}
             {% render 'product-card', product: product, accent: 'adam' %}
           {%- endfor -%}
         </div>
+        {%- if adam_collection.products.size > 4 -%}
+          <div class="products-tabs__view-more">
+            <a href="{{ adam_collection.url }}" class="products-tabs__view-more-btn">
+              <span>{{ 'products.view_more' | t }}</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        {%- endif -%}
       {%- else -%}
         <div class="products-tabs__grid">
-          {%- for product in collections.all.products limit: 6 -%}
+          {%- for product in collections.all.products limit: 4 -%}
             {% render 'product-card', product: product, accent: 'adam' %}
           {%- endfor -%}
         </div>
@@ -333,10 +349,18 @@
     <div role="tabpanel" id="panel-party" aria-labelledby="tab-party" aria-hidden="true" class="products-tabs__panel">
       {%- if party_collection != blank and party_collection.products.size > 0 -%}
         <div class="products-tabs__grid">
-          {%- for product in party_collection.products limit: 8 -%}
+          {%- for product in party_collection.products limit: 4 -%}
             {% render 'product-card', product: product, accent: 'default' %}
           {%- endfor -%}
         </div>
+        {%- if party_collection.products.size > 4 -%}
+          <div class="products-tabs__view-more">
+            <a href="{{ party_collection.url }}" class="products-tabs__view-more-btn">
+              <span>{{ 'products.view_more' | t }}</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        {%- endif -%}
       {%- else -%}
         <div class="products-tabs__grid">
           {%- for product in collections.all.products limit: 4 -%}
@@ -350,10 +374,18 @@
     <div role="tabpanel" id="panel-khalou" aria-labelledby="tab-khalou" aria-hidden="true" class="products-tabs__panel">
       {%- if khalou_collection != blank and khalou_collection.products.size > 0 -%}
         <div class="products-tabs__grid">
-          {%- for product in khalou_collection.products limit: 8 -%}
+          {%- for product in khalou_collection.products limit: 4 -%}
             {% render 'product-card', product: product, accent: 'default' %}
           {%- endfor -%}
         </div>
+        {%- if khalou_collection.products.size > 4 -%}
+          <div class="products-tabs__view-more">
+            <a href="{{ khalou_collection.url }}" class="products-tabs__view-more-btn">
+              <span>{{ 'products.view_more' | t }}</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        {%- endif -%}
       {%- else -%}
         <div class="products-tabs__grid">
           {%- for product in collections.all.products limit: 4 -%}
