@@ -1,0 +1,56 @@
+{%- comment -%}
+  Renders a product card
+  Accepts:
+  - product: {Object} Product Liquid object
+  - accent: {String} Color accent: 'lilia', 'adam', or 'default'
+{%- endcomment -%}
+
+{%- assign accent = accent | default: 'default' -%}
+
+<div class="product-card product-card--{{ accent }}">
+  <div class="product-card__image">
+    {%- if product.featured_image != blank -%}
+      <img 
+        src="{{ product.featured_image | image_url: width: 400 }}"
+        alt="{{ product.featured_image.alt | escape }}"
+        loading="lazy"
+        width="400"
+        height="400"
+      >
+    {%- else -%}
+      <svg class="product-card__image-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+      </svg>
+    {%- endif -%}
+    
+    {%- unless product.available -%}
+      <div class="product-card__sold-out">
+        <span class="product-card__sold-out-badge">{{ 'products.out_of_stock' | t }}</span>
+      </div>
+    {%- endunless -%}
+  </div>
+  
+  <div class="product-card__content">
+    <h3 class="product-card__title">
+      <a href="{{ product.url }}">{{ product.title }}</a>
+    </h3>
+    
+    <div class="product-card__footer">
+      <span class="product-card__price">
+        {{ product.price | money_without_trailing_zeros }}
+      </span>
+      
+      <form action="/cart/add" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <button type="submit" class="product-card__btn" {% unless product.available %}disabled{% endunless %}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="8" cy="21" r="1"/>
+            <circle cx="19" cy="21" r="1"/>
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

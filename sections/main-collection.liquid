@@ -1,0 +1,69 @@
+{%- style -%}
+  .main-collection {
+    padding: 6rem 1rem 3rem;
+    min-height: 80vh;
+  }
+  .main-collection__inner {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+  .main-collection__header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .main-collection__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  .main-collection__description {
+    color: #6b7280;
+  }
+  .main-collection__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  @media (min-width: 768px) {
+    .main-collection__grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+  }
+  .main-collection__empty {
+    text-align: center;
+    padding: 3rem;
+    color: #6b7280;
+  }
+{%- endstyle -%}
+
+<section class="main-collection">
+  <div class="main-collection__inner">
+    <header class="main-collection__header">
+      <h1 class="main-collection__title">{{ collection.title }}</h1>
+      {%- if collection.description != blank -%}
+        <p class="main-collection__description">{{ collection.description }}</p>
+      {%- endif -%}
+    </header>
+
+    {%- if collection.products.size > 0 -%}
+      <div class="main-collection__grid">
+        {%- for product in collection.products -%}
+          {% render 'product-card', product: product, accent: 'default' %}
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <p class="main-collection__empty">{{ 'products.no_products' | t }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Page",
+  "tag": "section",
+  "class": "section-main-collection",
+  "settings": []
+}
+{% endschema %}

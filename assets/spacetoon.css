@@ -1,0 +1,81 @@
+/* Spacetoon Toys - Custom Theme Styles */
+
+/* Animation keyframes */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  75% { transform: rotate(-10deg); }
+}
+
+/* Animation classes */
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.animate-bounce-soft {
+  animation: bounce-soft 2s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 1s ease-in-out infinite;
+}
+
+/* RTL adjustments */
+[dir="rtl"] .hero-battle__grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .header__inner {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .footer__col:first-child {
+  text-align: end;
+}
+
+[dir="rtl"] .footer__col:last-child {
+  text-align: start;
+}
+
+/* Tab interactions */
+.products-tabs__tab:focus {
+  outline: 2px solid var(--color-lilia);
+  outline-offset: 2px;
+}
+
+/* Product card hover */
+.product-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Hero button focus states */
+.hero-battle__btn:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading state for forms */
+form[data-loading] button[type="submit"] {
+  opacity: 0.7;
+  pointer-events: none;
+}

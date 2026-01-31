@@ -1,0 +1,375 @@
+{%- style -%}
+  .products-tabs {
+    padding: 3rem 0;
+    background: rgba(249, 250, 251, 0.5);
+  }
+  @media (min-width: 768px) {
+    .products-tabs {
+      padding: 4rem 0;
+    }
+  }
+  .products-tabs__inner {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  .products-tabs__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+  }
+  @media (min-width: 768px) {
+    .products-tabs__title {
+      font-size: 1.875rem;
+    }
+  }
+  .products-tabs__nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 42rem;
+    margin: 0 auto 2rem;
+    padding: 0.25rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    gap: 0.25rem;
+  }
+  @media (min-width: 768px) {
+    .products-tabs__nav {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  .products-tabs__tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: var(--color-text);
+    transition: all 0.2s;
+  }
+  .products-tabs__tab[aria-selected="true"] {
+    color: white;
+  }
+  .products-tabs__tab--lilia[aria-selected="true"] {
+    background: var(--color-lilia);
+  }
+  .products-tabs__tab--adam[aria-selected="true"] {
+    background: var(--color-adam);
+  }
+  .products-tabs__tab--party[aria-selected="true"] {
+    background: linear-gradient(to right, #fbbf24, #f97316);
+  }
+  .products-tabs__tab--khalou[aria-selected="true"] {
+    background: #1f2937;
+  }
+  .products-tabs__tab-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+  .products-tabs__panel {
+    display: none;
+  }
+  .products-tabs__panel[aria-hidden="false"] {
+    display: block;
+  }
+  .products-tabs__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  @media (min-width: 768px) {
+    .products-tabs__grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+  }
+  .product-card {
+    background: white;
+    border-radius: 1rem;
+    border: 2px solid;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .product-card--lilia {
+    border-color: rgba(236, 72, 153, 0.2);
+  }
+  .product-card--adam {
+    border-color: rgba(59, 130, 246, 0.2);
+  }
+  .product-card--default {
+    border-color: rgba(99, 102, 241, 0.2);
+  }
+  .product-card__image {
+    aspect-ratio: 1;
+    background: linear-gradient(to bottom right, #f9fafb, #f3f4f6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .product-card__image img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+  }
+  .product-card__image-placeholder {
+    width: 4rem;
+    height: 4rem;
+    color: #d1d5db;
+  }
+  .product-card__sold-out {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .product-card__sold-out-badge {
+    background: white;
+    color: black;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+  }
+  .product-card__content {
+    padding: 1rem;
+  }
+  .product-card__title {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--color-text);
+  }
+  .product-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  .product-card__price {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--color-text);
+  }
+  .product-card__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.75rem;
+    border: none;
+    background: var(--color-lilia);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .product-card__btn:hover {
+    transform: scale(1.05);
+  }
+  .product-card__btn:disabled {
+    background: #d1d5db;
+    cursor: not-allowed;
+  }
+  .product-card__btn:disabled:hover {
+    transform: none;
+  }
+  .products-tabs__empty {
+    text-align: center;
+    padding: 3rem 0;
+    color: #6b7280;
+  }
+{%- endstyle -%}
+
+{%- assign lilia_collection = section.settings.lilia_collection -%}
+{%- assign adam_collection = section.settings.adam_collection -%}
+{%- assign party_collection = section.settings.party_collection -%}
+{%- assign khalou_collection = section.settings.khalou_collection -%}
+
+<section id="inventory" class="products-tabs scroll-mt-20">
+  <div class="products-tabs__inner">
+    <h2 class="products-tabs__title">{{ 'products.shop_by_team' | t }}</h2>
+
+    <div class="products-tabs__nav" role="tablist">
+      <button 
+        role="tab" 
+        aria-selected="true" 
+        aria-controls="panel-lilia"
+        id="tab-lilia"
+        class="products-tabs__tab products-tabs__tab--lilia"
+        data-tab="lilia"
+      >
+        <svg class="products-tabs__tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2.25c1.5 0 3 1 3 3 0-2 1.5-3 3-3s3 1.5 3 4c0 2.25-1.5 4-3 4h-.5"/>
+          <path d="M3 9c0-2.5 1.5-4 3-4s3 1 3 3c0-2 1.5-3 3-3"/>
+          <path d="M6.75 14.25A2.25 2.25 0 0 0 4.5 12c-1.5 0-2.25 1.5-2.25 3C2.25 21 12 22.5 12 22.5S21.75 21 21.75 15c0-1.5-.75-3-2.25-3a2.25 2.25 0 0 0-2.25 2.25"/>
+        </svg>
+        <span>{{ 'products.tab_lilia' | t }}</span>
+      </button>
+      <button 
+        role="tab" 
+        aria-selected="false"
+        aria-controls="panel-adam"
+        id="tab-adam"
+        class="products-tabs__tab products-tabs__tab--adam"
+        data-tab="adam"
+      >
+        <svg class="products-tabs__tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+          <circle cx="7" cy="17" r="2"/>
+          <path d="M9 17h6"/>
+          <circle cx="17" cy="17" r="2"/>
+        </svg>
+        <span>{{ 'products.tab_adam' | t }}</span>
+      </button>
+      <button 
+        role="tab" 
+        aria-selected="false"
+        aria-controls="panel-party"
+        id="tab-party"
+        class="products-tabs__tab products-tabs__tab--party"
+        data-tab="party"
+      >
+        <svg class="products-tabs__tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5.8 11.3 2 22l10.7-3.79"/>
+          <path d="M4 3h.01"/>
+          <path d="M22 8h.01"/>
+          <path d="M15 2h.01"/>
+          <path d="M22 20h.01"/>
+          <path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12v0c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"/>
+          <path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11v0c-.11.7-.72 1.22-1.43 1.22H17"/>
+          <path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98v0C9.52 4.9 9 5.52 9 6.23V7"/>
+          <path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z"/>
+        </svg>
+        <span>{{ 'products.tab_party' | t }}</span>
+      </button>
+      <button 
+        role="tab" 
+        aria-selected="false"
+        aria-controls="panel-khalou"
+        id="tab-khalou"
+        class="products-tabs__tab products-tabs__tab--khalou"
+        data-tab="khalou"
+      >
+        <svg class="products-tabs__tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/>
+          <path d="M22 10v6"/>
+          <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
+        </svg>
+        <span>{{ 'products.tab_khalou' | t }}</span>
+      </button>
+    </div>
+
+    <!-- Lilia Panel -->
+    <div role="tabpanel" id="panel-lilia" aria-labelledby="tab-lilia" aria-hidden="false" class="products-tabs__panel">
+      {%- if lilia_collection != blank and lilia_collection.products.size > 0 -%}
+        <div class="products-tabs__grid">
+          {%- for product in lilia_collection.products limit: 8 -%}
+            {% render 'product-card', product: product, accent: 'lilia' %}
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <div class="products-tabs__grid">
+          {%- for product in collections.all.products limit: 6 -%}
+            {% render 'product-card', product: product, accent: 'lilia' %}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <!-- Adam Panel -->
+    <div role="tabpanel" id="panel-adam" aria-labelledby="tab-adam" aria-hidden="true" class="products-tabs__panel">
+      {%- if adam_collection != blank and adam_collection.products.size > 0 -%}
+        <div class="products-tabs__grid">
+          {%- for product in adam_collection.products limit: 8 -%}
+            {% render 'product-card', product: product, accent: 'adam' %}
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <div class="products-tabs__grid">
+          {%- for product in collections.all.products limit: 6 -%}
+            {% render 'product-card', product: product, accent: 'adam' %}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <!-- Party Panel -->
+    <div role="tabpanel" id="panel-party" aria-labelledby="tab-party" aria-hidden="true" class="products-tabs__panel">
+      {%- if party_collection != blank and party_collection.products.size > 0 -%}
+        <div class="products-tabs__grid">
+          {%- for product in party_collection.products limit: 8 -%}
+            {% render 'product-card', product: product, accent: 'default' %}
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <div class="products-tabs__grid">
+          {%- for product in collections.all.products limit: 4 -%}
+            {% render 'product-card', product: product, accent: 'default' %}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <!-- Khalou Panel -->
+    <div role="tabpanel" id="panel-khalou" aria-labelledby="tab-khalou" aria-hidden="true" class="products-tabs__panel">
+      {%- if khalou_collection != blank and khalou_collection.products.size > 0 -%}
+        <div class="products-tabs__grid">
+          {%- for product in khalou_collection.products limit: 8 -%}
+            {% render 'product-card', product: product, accent: 'default' %}
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <div class="products-tabs__grid">
+          {%- for product in collections.all.products limit: 4 -%}
+            {% render 'product-card', product: product, accent: 'default' %}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products Tabs",
+  "tag": "section",
+  "class": "section-featured-products",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "lilia_collection",
+      "label": "Team Lilia Collection"
+    },
+    {
+      "type": "collection",
+      "id": "adam_collection",
+      "label": "Team Adam Collection"
+    },
+    {
+      "type": "collection",
+      "id": "party_collection",
+      "label": "Party Time Collection"
+    },
+    {
+      "type": "collection",
+      "id": "khalou_collection",
+      "label": "Khalou's Picks Collection"
+    }
+  ]
+}
+{% endschema %}

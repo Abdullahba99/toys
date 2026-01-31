@@ -1,0 +1,106 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Spacetoon Toys",
+    "theme_version": "1.0.0",
+    "theme_author": "Spacetoon",
+    "theme_documentation_url": "",
+    "theme_support_url": ""
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_lilia",
+        "label": "Team Lilia Color",
+        "default": "#ec4899"
+      },
+      {
+        "type": "color",
+        "id": "color_lilia_light",
+        "label": "Team Lilia Light",
+        "default": "#fce7f3"
+      },
+      {
+        "type": "color",
+        "id": "color_adam",
+        "label": "Team Adam Color",
+        "default": "#3b82f6"
+      },
+      {
+        "type": "color",
+        "id": "color_adam_light",
+        "label": "Team Adam Light",
+        "default": "#dbeafe"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text Color",
+        "default": "#1f2937"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Heading Font",
+        "default": "poppins_n6"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body Font",
+        "default": "poppins_n4"
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_whatsapp",
+        "label": "WhatsApp Number",
+        "info": "Include country code (e.g., +963912345678)"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook",
+        "label": "Facebook URL"
+      }
+    ]
+  },
+  {
+    "name": "Battle Score",
+    "settings": [
+      {
+        "type": "number",
+        "id": "score_lilia",
+        "label": "Lilia's Score",
+        "default": 42
+      },
+      {
+        "type": "number",
+        "id": "score_adam",
+        "label": "Adam's Score",
+        "default": 38
+      }
+    ]
+  }
+]

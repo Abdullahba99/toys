@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}" dir="{{ request.locale.iso_code | slice: 0, 2 | replace: 'ar', 'rtl' | replace: 'en', 'ltr' }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  
+  <title>
+    {{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  {% render 'meta-tags' %}
+
+  {{ content_for_header }}
+
+  {{ 'base.css' | asset_url | stylesheet_tag }}
+  {{ 'spacetoon.css' | asset_url | stylesheet_tag }}
+
+  <style>
+    :root {
+      --color-lilia: {{ settings.color_lilia }};
+      --color-lilia-light: {{ settings.color_lilia_light }};
+      --color-adam: {{ settings.color_adam }};
+      --color-adam-light: {{ settings.color_adam_light }};
+      --color-background: {{ settings.color_background }};
+      --color-text: {{ settings.color_text }};
+    }
+  </style>
+
+  {% if request.locale.iso_code == 'ar' %}
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  {% endif %}
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+  </script>
+</head>
+
+<body class="template-{{ template.name }}{% if request.locale.iso_code == 'ar' %} rtl{% endif %}">
+  <a class="skip-to-content-link visually-hidden" href="#MainContent">
+    {{ "accessibility.skip_to_content" | t }}
+  </a>
+
+  {% sections 'header-group' %}
+
+  <main id="MainContent" class="content-for-layout" role="main" tabindex="-1">
+    {{ content_for_layout }}
+  </main>
+
+  {% sections 'footer-group' %}
+
+  {{ 'spacetoon.js' | asset_url | script_tag }}
+</body>
+</html>

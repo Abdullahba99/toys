@@ -1,0 +1,131 @@
+{%- style -%}
+  .stats-bar {
+    position: relative;
+    padding: 2rem 0;
+    background: white;
+  }
+  .stats-bar__inner {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  .stats-bar__container {
+    background: linear-gradient(to right, rgba(236, 72, 153, 0.05), white, rgba(59, 130, 246, 0.05));
+    border-radius: 1rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f3f4f6;
+    padding: 1rem;
+  }
+  @media (min-width: 768px) {
+    .stats-bar__container {
+      padding: 1.5rem;
+    }
+  }
+  .stats-bar__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 768px) {
+    .stats-bar__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+  }
+  .stats-bar__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+  }
+  .stats-bar__item--score {
+    background: linear-gradient(to right, var(--color-lilia-light), var(--color-adam-light));
+    opacity: 0.5;
+  }
+  .stats-bar__item--delivery {
+    background: #dcfce7;
+  }
+  .stats-bar__item--approved {
+    background: #dbeafe;
+  }
+  .stats-bar__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+  }
+  .stats-bar__icon--score {
+    color: #eab308;
+  }
+  .stats-bar__icon--delivery {
+    color: #16a34a;
+  }
+  .stats-bar__icon--approved {
+    color: #2563eb;
+  }
+  .stats-bar__text {
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    .stats-bar__text {
+      font-size: 1rem;
+    }
+  }
+  .stats-bar__text--delivery {
+    color: #15803d;
+  }
+  .stats-bar__text--approved {
+    color: #1d4ed8;
+  }
+{%- endstyle -%}
+
+<section class="stats-bar">
+  <div class="stats-bar__inner">
+    <div class="stats-bar__container">
+      <div class="stats-bar__grid">
+        <div class="stats-bar__item stats-bar__item--score">
+          <svg class="stats-bar__icon stats-bar__icon--score" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+            <path d="M4 22h16"/>
+            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+          </svg>
+          <span class="stats-bar__text">{{ 'stats.score' | t: lilia_score: settings.score_lilia, adam_score: settings.score_adam }}</span>
+        </div>
+
+        <div class="stats-bar__item stats-bar__item--delivery">
+          <svg class="stats-bar__icon stats-bar__icon--delivery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+            <path d="M15 18H9"/>
+            <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>
+            <circle cx="17" cy="18" r="2"/>
+            <circle cx="7" cy="18" r="2"/>
+          </svg>
+          <span class="stats-bar__text stats-bar__text--delivery">{{ 'stats.delivery' | t }}</span>
+        </div>
+
+        <div class="stats-bar__item stats-bar__item--approved">
+          <svg class="stats-bar__icon stats-bar__icon--approved" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+          <span class="stats-bar__text stats-bar__text--approved">{{ 'stats.approved' | t }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Stats Bar",
+  "tag": "section",
+  "class": "section-stats-bar",
+  "settings": []
+}
+{% endschema %}

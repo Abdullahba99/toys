@@ -1,0 +1,53 @@
+{
+  "general": {
+    "store_name": "Spacetoon Toys",
+    "currency": "SYP"
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to content"
+  },
+  "navigation": {
+    "home": "Home",
+    "shop": "Shop",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "Who has better taste?",
+    "lilia_button": "View Her Picks",
+    "adam_button": "View His Picks",
+    "lilia_name": "Lilia",
+    "adam_name": "Adam",
+    "lilia_subtitle": "The little princess with refined taste",
+    "adam_subtitle": "The little hero with awesome style",
+    "team_lilia": "Team Lilia",
+    "team_adam": "Team Adam",
+    "vs": "VS"
+  },
+  "stats": {
+    "score": "Live Battle Score: Lilia ({{ lilia_score }}) - Adam ({{ adam_score }})",
+    "delivery": "2-Hour Delivery",
+    "approved": "Khalou Approved"
+  },
+  "products": {
+    "shop_by_team": "Shop by Team",
+    "tab_lilia": "Team Lilia",
+    "tab_adam": "Team Adam",
+    "tab_party": "Party Time",
+    "tab_khalou": "Khalou's Picks",
+    "add_to_cart": "Add to Cart",
+    "out_of_stock": "Out of Stock",
+    "no_products": "No products available"
+  },
+  "about": {
+    "title": "About Us",
+    "khalou_name": "Khalou Mahmoud",
+    "text": "Meet Khalou Mahmoud. I just pay the rent. My niece and nephew run the show."
+  },
+  "footer": {
+    "quick_links": "Quick Links",
+    "connect": "Connect with Us",
+    "copyright": "© 2025 Spacetoon Toys. All rights reserved.",
+    "tagline": "The best toys for kids in Syria"
+  }
+}

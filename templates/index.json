@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-battle",
+      "settings": {}
+    },
+    "stats": {
+      "type": "stats-bar",
+      "settings": {}
+    },
+    "products": {
+      "type": "featured-products-tabs",
+      "settings": {}
+    },
+    "about": {
+      "type": "about-khalou",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "stats",
+    "products",
+    "about"
+  ]
+}
