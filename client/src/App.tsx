@@ -5,12 +5,14 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/lib/language-context";
 import Home from "@/pages/home";
+import CollectionPage from "@/pages/collection";
 import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/collection/:category" component={CollectionPage} />
       <Route component={NotFound} />
     </Switch>
   );
