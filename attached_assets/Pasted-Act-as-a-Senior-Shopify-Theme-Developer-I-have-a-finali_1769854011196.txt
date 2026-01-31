@@ -1,0 +1,40 @@
+Act as a Senior Shopify Theme Developer. I have a finalized design prototype for a toy store called "Spacetoon Toys" (Team Lilia vs. Team Adam) and I need to convert it into production-ready Shopify Liquid code.
+
+REFERENCE DOCUMENTATION:
+Build this according to Shopify Online Store 2.0 architecture: https://shopify.dev/docs/storefronts/themes/architecture/sections
+
+TASK:
+Create a single, comprehensive Shopify Section file named `spacetoon-landing.liquid` that I can add to the Dawn Theme. This section must recreate the specific "Fun & Professional" design we established.
+
+REQUIREMENTS:
+
+1. SCHEMA SETTINGS (The "Customize" Menu):
+   The user must be able to edit these in the Shopify Editor:
+   - Images: Pick image for Lilia (Left) and Adam (Right).
+   - Text: Edit Headlines ("Who has better taste?"), Subtitles, and Button Text.
+   - Collections: A selector to pick the specific Shopify Collection for "Team Lilia", "Team Adam", "Party", and "Khalou's Picks".
+   - Colors: Color pickers for the Lilia Accent (Pink) and Adam Accent (Blue).
+
+2. HTML/LIQUID STRUCTURE:
+   - Use standard HTML5 combined with Liquid logic.
+   - PRESERVE THE DESIGN:
+     - Split Screen Hero (Lilia Left / Adam Right).
+     - The "Stats/Trust Bar" in the middle (Live Score + Trust Badges).
+     - The 4-Tab System: When a user clicks a tab, use AJAX or simple CSS/JS toggling to show the products from that specific collection.
+     - Product Cards: Loop through the selected collection using `{% for product in collections[block.settings.collection].products limit: 4 %}`.
+
+3. INTERACTION LOGIC (The "Smart Scroll"):
+   - When the user clicks "Shop Lilia" in the Hero, the page must smooth-scroll to the Tab Section and automatically activate the "Lilia" tab.
+
+4. LOCALIZATION & RTL (Crucial):
+   - The code must support Shopify's native `{{ 'ar' }}` locale handling.
+   - Use CSS Logical Properties (e.g., `padding-inline-start` instead of `padding-left`) or Flexbox gaps so the layout flips automatically when the store language is set to Arabic.
+   - Do NOT hardcode text. Use `{{ section.settings.lilia_headline }}` so it can be translated in the editor.
+
+5. STYLING:
+   - Use scoped CSS within the `{% style %}` tag.
+   - Do NOT use Tailwind CDN (it conflicts with Dawn). Write clean, custom CSS that mimics the "Rounded, Bouncy, Fun" look we designed previously.
+   - Font: Use the theme's default font settings but apply `border-radius: 20px` to buttons and cards.
+
+OUTPUT FORMAT:
+Provide the complete code for the file `spacetoon-landing.liquid` (Liquid + CSS + JS + Schema) in one block.
