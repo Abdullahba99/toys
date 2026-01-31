@@ -74,7 +74,7 @@ export const translations: Record<'en' | 'ar', Translations> = {
     navContact: "Contact",
     footerText: "2025 Spacetoon Toys. All rights reserved.",
     addToCart: "Add to Cart",
-    currency: "SYP",
+    currency: "KWD",
   },
   ar: {
     heroHeadline: "مين ذوقه أحلى؟",
@@ -94,6 +94,6 @@ export const translations: Record<'en' | 'ar', Translations> = {
     navContact: "تواصل",
     footerText: "2025 سبيستون تويز. جميع الحقوق محفوظة.",
     addToCart: "أضف للسلة",
-    currency: "ل.س",
+    currency: "د.ك",
   }
 };
