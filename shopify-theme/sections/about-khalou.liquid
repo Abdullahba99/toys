@@ -1,0 +1,241 @@
+{%- style -%}
+  .about-khalou {
+    padding: 4rem 0;
+    background: white;
+  }
+  @media (min-width: 768px) {
+    .about-khalou {
+      padding: 5rem 0;
+    }
+  }
+  .about-khalou__inner {
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  .about-khalou__card {
+    position: relative;
+    background: linear-gradient(to bottom right, #f9fafb, white);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    border: 1px solid #f3f4f6;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  @media (min-width: 768px) {
+    .about-khalou__card {
+      padding: 3rem;
+    }
+  }
+  .about-khalou__badge {
+    position: absolute;
+    top: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(to right, var(--color-lilia), var(--color-adam));
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  .about-khalou__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 1rem;
+  }
+  @media (min-width: 768px) {
+    .about-khalou__content {
+      flex-direction: row;
+    }
+  }
+  .about-khalou__avatar {
+    position: relative;
+    flex-shrink: 0;
+  }
+  .about-khalou__avatar-circle {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 9999px;
+    background: linear-gradient(to bottom right, #f3f4f6, #e5e7eb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  @media (min-width: 768px) {
+    .about-khalou__avatar-circle {
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+  .about-khalou__avatar-icon {
+    width: 4rem;
+    height: 4rem;
+    color: #9ca3af;
+  }
+  @media (min-width: 768px) {
+    .about-khalou__avatar-icon {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+  .about-khalou__heart {
+    position: absolute;
+    top: -0.5rem;
+    right: 0;
+    width: 2rem;
+    height: 2rem;
+    color: #f87171;
+    animation: pulse-soft 2s infinite;
+  }
+  .about-khalou__star {
+    position: absolute;
+    bottom: -0.25rem;
+    left: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #fbbf24;
+  }
+  .about-khalou__text {
+    flex: 1;
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    .about-khalou__text {
+      text-align: start;
+    }
+    [dir="rtl"] .about-khalou__text {
+      text-align: end;
+    }
+  }
+  .about-khalou__name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+  @media (min-width: 768px) {
+    .about-khalou__name {
+      font-size: 1.5rem;
+    }
+  }
+  .about-khalou__description {
+    color: #6b7280;
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
+  .about-khalou__kids {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #f3f4f6;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  .about-khalou__kid {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+  }
+  .about-khalou__kid--lilia {
+    background: var(--color-lilia-light);
+    opacity: 0.5;
+  }
+  .about-khalou__kid--adam {
+    background: var(--color-adam-light);
+    opacity: 0.5;
+  }
+  .about-khalou__kid-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  .about-khalou__kid-icon--lilia {
+    color: var(--color-lilia);
+  }
+  .about-khalou__kid-icon--adam {
+    color: var(--color-adam);
+  }
+  .about-khalou__kid-name {
+    font-weight: 600;
+  }
+  .about-khalou__kid-name--lilia {
+    color: #9d174d;
+  }
+  .about-khalou__kid-name--adam {
+    color: #1e40af;
+  }
+  .about-khalou__love {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #f87171;
+  }
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+{%- endstyle -%}
+
+<section id="about" class="about-khalou">
+  <div class="about-khalou__inner">
+    <div class="about-khalou__card">
+      <div class="about-khalou__badge">{{ 'about.title' | t }}</div>
+
+      <div class="about-khalou__content">
+        <div class="about-khalou__avatar">
+          <div class="about-khalou__avatar-circle">
+            <svg class="about-khalou__avatar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <svg class="about-khalou__heart" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+          </svg>
+          <svg class="about-khalou__star" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+
+        <div class="about-khalou__text">
+          <h3 class="about-khalou__name">{{ 'about.khalou_name' | t }}</h3>
+          <p class="about-khalou__description">{{ 'about.text' | t }}</p>
+        </div>
+      </div>
+
+      <div class="about-khalou__kids">
+        <div class="about-khalou__kid about-khalou__kid--lilia">
+          <svg class="about-khalou__kid-icon about-khalou__kid-icon--lilia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span class="about-khalou__kid-name about-khalou__kid-name--lilia">{{ 'hero.lilia_name' | t }}</span>
+        </div>
+        <svg class="about-khalou__love" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+        </svg>
+        <div class="about-khalou__kid about-khalou__kid--adam">
+          <svg class="about-khalou__kid-icon about-khalou__kid-icon--adam" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span class="about-khalou__kid-name about-khalou__kid-name--adam">{{ 'hero.adam_name' | t }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Khalou",
+  "tag": "section",
+  "class": "section-about",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,150 @@
+{%- style -%}
+  .main-cart {
+    padding: 6rem 1rem 3rem;
+    min-height: 80vh;
+  }
+  .main-cart__inner {
+    max-width: 64rem;
+    margin: 0 auto;
+  }
+  .main-cart__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .main-cart__empty {
+    text-align: center;
+    padding: 3rem;
+    color: #6b7280;
+  }
+  .main-cart__items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .cart-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f9fafb;
+    border-radius: 1rem;
+  }
+  .cart-item__image {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    background: white;
+  }
+  .cart-item__info {
+    flex: 1;
+  }
+  .cart-item__title {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+  .cart-item__price {
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+  .cart-item__quantity {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .cart-item__qty-btn {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .cart-item__qty-input {
+    width: 3rem;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+  }
+  .main-cart__footer {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1.5rem;
+  }
+  .main-cart__total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .main-cart__checkout {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: white;
+    background: var(--color-lilia);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+  }
+{%- endstyle -%}
+
+<section class="main-cart">
+  <div class="main-cart__inner">
+    <h1 class="main-cart__title">{{ 'cart.title' | t | default: 'Your Cart' }}</h1>
+
+    {%- if cart.item_count > 0 -%}
+      <form action="{{ routes.cart_url }}" method="post">
+        <div class="main-cart__items">
+          {%- for item in cart.items -%}
+            <div class="cart-item">
+              {%- if item.image -%}
+                <img class="cart-item__image" src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title | escape }}">
+              {%- endif -%}
+              <div class="cart-item__info">
+                <h3 class="cart-item__title">{{ item.product.title }}</h3>
+                <p class="cart-item__price">{{ item.price | money }}</p>
+                <div class="cart-item__quantity">
+                  <span>Qty: {{ item.quantity }}</span>
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <div class="main-cart__footer">
+          <div class="main-cart__total">
+            <span>Total</span>
+            <span>{{ cart.total_price | money }}</span>
+          </div>
+          <a href="{{ routes.checkout_url }}" class="main-cart__checkout">
+            Checkout
+          </a>
+        </div>
+      </form>
+    {%- else -%}
+      <p class="main-cart__empty">Your cart is empty</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cart Page",
+  "tag": "section",
+  "class": "section-main-cart",
+  "settings": []
+}
+{% endschema %}

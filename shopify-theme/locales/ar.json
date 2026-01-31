@@ -1,0 +1,53 @@
+{
+  "general": {
+    "store_name": "سبيستون تويز",
+    "currency": "ل.س"
+  },
+  "accessibility": {
+    "skip_to_content": "تخطي إلى المحتوى"
+  },
+  "navigation": {
+    "home": "الرئيسية",
+    "shop": "المتجر",
+    "about": "عنا",
+    "contact": "تواصل"
+  },
+  "hero": {
+    "headline": "مين ذوقه أحلى؟",
+    "lilia_button": "شوف اختياراتها",
+    "adam_button": "شوف اختياراته",
+    "lilia_name": "ليليا",
+    "adam_name": "آدم",
+    "lilia_subtitle": "الأميرة الصغيرة بذوق راقي",
+    "adam_subtitle": "البطل الصغير مع أسلوب رائع",
+    "team_lilia": "فريق ليليا",
+    "team_adam": "فريق آدم",
+    "vs": "ضد"
+  },
+  "stats": {
+    "score": "النتيجة: ليليا ({{ lilia_score }}) - آدم ({{ adam_score }})",
+    "delivery": "توصيل بساعتين",
+    "approved": "مضمونة من خالو"
+  },
+  "products": {
+    "shop_by_team": "تسوق حسب الفريق",
+    "tab_lilia": "فريق ليليا",
+    "tab_adam": "فريق آدم",
+    "tab_party": "وقت الحفلة",
+    "tab_khalou": "توصيات خالو",
+    "add_to_cart": "أضف للسلة",
+    "out_of_stock": "نفذ المخزون",
+    "no_products": "لا توجد منتجات متاحة حالياً"
+  },
+  "about": {
+    "title": "عنا",
+    "khalou_name": "خالو محمود",
+    "text": "أهلين، أنا خالو محمود. بصراحة مو أنا اللي ممشي المحل، ولاد أختي هنن اللي بيتحكموا بكل شي."
+  },
+  "footer": {
+    "quick_links": "روابط سريعة",
+    "connect": "تواصل معنا",
+    "copyright": "© 2025 سبيستون تويز. جميع الحقوق محفوظة.",
+    "tagline": "أفضل ألعاب للأطفال في سوريا"
+  }
+}

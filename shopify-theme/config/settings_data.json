@@ -1,0 +1,25 @@
+{
+  "current": {
+    "color_lilia": "#ec4899",
+    "color_lilia_light": "#fce7f3",
+    "color_adam": "#3b82f6",
+    "color_adam_light": "#dbeafe",
+    "color_background": "#ffffff",
+    "color_text": "#1f2937",
+    "social_whatsapp": "",
+    "social_instagram": "",
+    "social_facebook": "",
+    "score_lilia": 42,
+    "score_adam": 38,
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {}
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      }
+    }
+  }
+}
